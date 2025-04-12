@@ -21,6 +21,6 @@ app.use(express.json());
 
 app.use("/api/shop", require("./routes/shopRoutes"));
 
-// const PORT = process.env.PORT;
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = 3000 //process.env.PORT;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 module.exports = app; //  Vercel ke liye export kar diya
