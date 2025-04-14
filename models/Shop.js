@@ -6,7 +6,7 @@ const shopSchema = new mongoose.Schema({
     address: { type: String, required: true },
     adharcard: { type: String, required: true },
     pancard: { type: String, required: true },
-    email: { type: String, required: true,unique: true},
+    email: { type: String, required: true},
     city: { type: String, required: true },
     state:{ type: String, required: true},
     pinCode: { type: String, required: true },
