@@ -4,6 +4,7 @@ const Shop = require("../models/Shop");
 
 // Add New Shop Data
 exports.addShop = async (req, res) => {
+    // console.log('record saved')
     try {
         const { name, contactNumber, address, adharcard, pancard, email, city, state, pinCode, shopFlat, shopSize } = req.body;
 
@@ -13,10 +14,10 @@ exports.addShop = async (req, res) => {
         }
 
         // Check if the shop already exists based on contact number & shop type
-        const existingShop = await Shop.findOne({ contactNumber, adharcard });
-        if (existingShop) {
-            return res.status(400).json({ message: "Shop already registered!" });
-        }
+        // const existingShop = await Shop.findOne({ contactNumber, adharcard });
+        // if (existingShop) {
+        //     return res.status(400).json({ message: "Shop already registered!" });
+        // }
 
         // Create and save the new shop data
         const newShop = new Shop(req.body);
@@ -31,6 +32,7 @@ exports.addShop = async (req, res) => {
 
 // Get All Shops (Latest First)
 exports.getShops = async (req, res) => {
+    // res.send('data showing')
     try {
         const shops = await Shop.find().sort({ _id: -1 }); // Latest records first
         res.status(200).json(shops);
